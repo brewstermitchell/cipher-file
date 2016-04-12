@@ -1,19 +1,26 @@
 #!/usr/bin/env python
 ####
-# Cypher-file: contains functions to encipher and decipher files into base64. (weak cipher)
+# Cypher-file: contains functions to encipher and decipher files into base64 with a key.
 # written by Brewster Mitchell
 #   April 11, 2016
 # See LICENSE.md for license terms.
+#
+# Usage == arguments: [e/d] [file in] [file out] [key(password)]
+#
 #####
 
 import sys
 import base64
 from Crypto.Cipher import XOR
 
-in_f = sys.argv[1]
-out_f = sys.argv[2]
-key_in = sys.argv[3]
 
+enc_or_dec = sys.argv[1]
+in_f = sys.argv[2]
+out_f = sys.argv[3]
+key_in = sys.argv[4]
+
+
+## plain base64 deprecated
 
 def encrypt_64(in_file, out_file):
   with open(in_file, 'rb') as f:
@@ -48,7 +55,7 @@ def decrypt_XOR(key, ciphertext):
 def encfile_XOR(in_file, out_file, key):
   with open(in_file) as f:
     encoded = encrypt_XOR(key, f.read())
-    print(encoded)
+    print(in_file + ' encrypted as ' + out_file)
     with open(out_file, 'w') as w:
       w.write(encoded.decode("utf-8"))
 
@@ -56,10 +63,17 @@ def encfile_XOR(in_file, out_file, key):
 def decfile_XOR(in_file, out_file, key):
   with open(in_file) as f:
     decoded = decrypt_XOR(key, f.read())
-    print(decoded)
+    print(in_file + ' decrypted as ' + out_file)
     with open(out_file, 'w') as w:
       w.write(decoded.decode("utf-8"))
 
-## function calls
-# encfile_XOR(in_f, out_f, key_in)
-# decfile_XOR(out_f, 'decrypted.xml', key_in)
+def main():
+  if enc_or_dec == 'e':
+    encfile_XOR(in_f, out_f, key_in)
+  elif enc_or_dec == 'd':
+    decfile_XOR(out_f, in_f, key_in)
+  else:
+    print('invalid parameter at position 1. Expecting "e" or "d".')
+  return
+    
+main()
