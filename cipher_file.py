@@ -60,7 +60,7 @@ def encfile_XOR(in_file, out_file, key):
       w.write(encoded.decode("utf-8"))
 
 
-def decfile_XOR(in_file, out_file, key):
+def decfile_XOR(in_file, out_file, key): ## CAUTION: decrypting with invalid key will produce invalid results rather than error!!!
   with open(in_file) as f:
     decoded = decrypt_XOR(key, f.read())
     print(in_file + ' decrypted as ' + out_file)
