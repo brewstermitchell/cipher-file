@@ -13,7 +13,7 @@ import sys
 import base64
 from Crypto.Cipher import XOR
 
-
+# params for running as main
 enc_or_dec = sys.argv[1]
 in_f = sys.argv[2]
 out_f = sys.argv[3]
@@ -75,5 +75,6 @@ def main():
   else:
     print('invalid parameter at position 1. Expecting "e" or "d".')
   return
-    
-main()
+
+if __name__ == "__main__":
+  main()
