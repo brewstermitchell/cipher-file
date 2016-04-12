@@ -26,6 +26,6 @@ def decrypt (in_file, out_file):
     with open(out_file, 'wb') as w:
       w.write(decoded)
       
-    
-encrypt(in_f, out_f)
-decrypt(out_f, 'result.xml')
+## module calls
+# encrypt(in_f, out_f)
+# decrypt(out_f, 'result.xml')
