@@ -20,10 +20,10 @@ def encrypt (in_file, out_file):
     with open(out_file, 'wb') as w:
       w.write(encoded)
       
-def decrypt (out_file, in_file):
-  with open(out_file, 'rb') as f:
+def decrypt (in_file, out_file):
+  with open(in_file, 'rb') as f:
     decoded = base64.b64decode(f.read())
-    with open(in_file, 'wb') as w:
+    with open(out_file, 'wb') as w:
       w.write(decoded)
       
     
