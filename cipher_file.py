@@ -71,7 +71,7 @@ def main():
   if enc_or_dec == 'e':
     encfile_XOR(in_f, out_f, key_in)
   elif enc_or_dec == 'd':
-    decfile_XOR(out_f, in_f, key_in)
+    decfile_XOR(in_f, out_f, key_in)
   else:
     print('invalid parameter at position 1. Expecting "e" or "d".')
   return
