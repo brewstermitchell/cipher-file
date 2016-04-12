@@ -44,6 +44,7 @@ def decrypt_XOR(key, ciphertext):
   cipher = XOR.new(key)
   return cipher.decrypt(base64.b64decode(ciphertext))
 
+
 def encfile_XOR(in_file, out_file, key):
   with open(in_file) as f:
     encoded = encrypt_XOR(key, f.read())
