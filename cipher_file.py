@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 ####
-# Cypher-file: contains functions to encipher and decipher files into base64 with a key.
-# written by Brewster Mitchell
+# Cipher-file: contains functions to encipher and decipher files into XOR + base64 with a key.
+# 	written by Brewster Mitchell
 #   April 11, 2016
 # See LICENSE.md for license terms.
 #
@@ -13,14 +13,8 @@ import sys
 import base64
 from Crypto.Cipher import XOR
 
-# params for running as main
-enc_or_dec = sys.argv[1]
-in_f = sys.argv[2]
-out_f = sys.argv[3]
-key_in = sys.argv[4]
-
-
 ## plain base64 deprecated
+
 
 def encrypt_64(in_file, out_file):
   with open(in_file, 'rb') as f:
@@ -37,6 +31,7 @@ def decrypt_64(in_file, out_file):
 
 
 # XOR + b64
+
 
 def encrypt_XOR(key, plaintext):
   cipher = XOR.new(key)
@@ -63,14 +58,21 @@ def decfile_XOR(in_file, out_file, key): ## CAUTION: decrypting with invalid key
     with open(out_file, 'w') as w:
       w.write(decoded.decode("utf-8"))
 
+
 def main():
-  if enc_or_dec == 'e':
+  # params
+  enc_or_dec = sys.argv[1]
+  in_f = sys.argv[2]
+  out_f = sys.argv[3]
+  key_in = sys.argv[4]
+  if enc_or_dec == 'e': # encipher
     encfile_XOR(in_f, out_f, key_in)
-  elif enc_or_dec == 'd':
+  elif enc_or_dec == 'd': # decipher
     decfile_XOR(in_f, out_f, key_in)
   else:
     print('invalid parameter at position 1. Expecting "e" or "d".')
   return
+
 
 if __name__ == "__main__":
   main()
