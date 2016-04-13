@@ -1,11 +1,18 @@
 # Cipher-File
 
-Python module containing functions to encipher and decipher files using a key (passphrase).
+Python 3.x module containing functions to encipher and decipher files using a key (passphrase).
 Intended for either importing or calling directly with the specified parameters.
 
 ## Usage:
 
-###### Parameters:
+
+#### Dependencies:
+ 
+ Python 3.x
+ 
+ PyCrypto
+
+##### Parameters:
 
  [1] e / d = select **e**ncipher or **d**ecipher
  
@@ -16,7 +23,7 @@ Intended for either importing or calling directly with the specified parameters.
  [4] key = string key to create cipher (or to generate same cipher for decipher). Can be any length.
  
  
-###### CLI
+##### CLI
 
  cipher-file.py [e/d] [file in] [file out] [key]
  
