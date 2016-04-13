@@ -36,10 +36,6 @@ def decrypt_64(in_file, out_file):
       w.write(decoded)
 
 
-## function calls
-# encrypt_64(in_f, out_f)
-# decrypt_64(out_f, 'result.xml')
-
 # XOR + b64
 
 def encrypt_XOR(key, plaintext):
