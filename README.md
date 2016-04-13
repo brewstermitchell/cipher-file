@@ -7,7 +7,7 @@ Intended for either importing or calling directly with the specified parameters.
 
 ###### Parameters:
 
- [1] e / d = select __e__ncipher or __d__ecipher
+ [1] e / d = select **e**ncipher or **d**ecipher
  
  [2] file in = the file to be en/deciphered.
  
