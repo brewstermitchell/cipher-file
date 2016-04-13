@@ -6,10 +6,9 @@ Intended for either importing or calling directly with the specified parameters.
 ## Usage:
 
 
-#### Dependencies:
+##### Dependencies:
  
  Python 3.x
- 
  PyCrypto
 
 ##### Parameters:
