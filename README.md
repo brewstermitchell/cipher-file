@@ -25,7 +25,10 @@ PyCrypto
 ##### CLI
 
 cipher-file.py [e/d] [file in] [file out] [key]<br />
-ex: 'python3 cipher-file.py e plaintext.txt enctext.txt pa$$w0rd'
+ex:<br />
+'''
+ 'python3 cipher-file.py e plaintext.txt enctext.txt pa$$w0rd'
+'''
 
 ## License:
 
